@@ -1,0 +1,34 @@
+type Loco{
+    id: ID!
+    name: String
+    roadNumber: String
+    locoType: Locomotive
+    locoSeries: String
+}
+
+enum Locomotive{
+    ALCO
+    EMD
+    EMU
+    WDP
+    WDM
+    WDG
+    WAP
+    WAG
+    WAM
+    MEMU
+    DEMU
+    GE
+    SHUNTER
+}
+
+type Query{
+    findAll: [Loco]
+    findOne(id: ID): Loco
+}
+
+type Mutation {
+    create(name: String, roadNumber: String, locoType: Locomotive, locoSeries: String): Loco
+    update(id: ID, name: String, roadNumber: String, locoType: Locomotive, locoSeries: String): Loco
+    delete(id: ID): Loco
+}
